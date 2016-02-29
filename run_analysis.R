@@ -2,18 +2,16 @@ library(dplyr)
 
 # We assume the data is already downloaded into the working directory.
 working_dir <- getwd()
-
 ## Tidy the data ----
-
 # give activity_labels easy to read and understand names
 activity_col_names <- c("activity_id", "activity_name")
 # load activity lables
-activity_labels <- read.table("./data/UCI HAR Dataset/activity_labels.txt",
+activity_labels <- read.table(paste0(working_dir, "/UCI HAR Dataset/activity_labels.txt"),
                               col.names = activity_col_names)
 # give the variable name table column names
 variable_names_col_names <- c("variable_id", "variable_name")
 # load variable labels
-variable_names <- read.table("./data/UCI HAR Dataset/features.txt"
+variable_names <- read.table(paste0(working_dir, "/UCI HAR Dataset/features.txt")
                              , col.names = variable_names_col_names)
 # clean the variable lables
 variable_names$variable_name_tidy <- 
@@ -40,7 +38,7 @@ variable_names$variable_name_tidy <-
 
 
 # load the test data
-test_data_no_ids <- read.table("./data/UCI HAR Dataset/test/X_test.txt"
+test_data_no_ids <- read.table(paste0(working_dir, "/UCI HAR Dataset/test/X_test.txt")
                         , col.names = variable_names$variable_name_tidy)
 # there are some duplicate column names that need to be handeled
 # the duplicate names were given .# at the end of the columns
@@ -48,10 +46,10 @@ test_data_no_ids <- read.table("./data/UCI HAR Dataset/test/X_test.txt"
 # we are just going to replace the . with an underscore and keep the number
 colnames(test_data_no_ids) <- gsub("\\.", "_", colnames(test_data_no_ids))
 # load the test subjects
-test_subjects <- read.table("./data/UCI HAR Dataset/test/subject_test.txt",
+test_subjects <- read.table(paste0(working_dir, "/UCI HAR Dataset/test/subject_test.txt"),
                             col.names = "subject_id")
 # load the test activities that relate to the test data
-test_activities <- read.table("./data/UCI HAR Dataset/test/y_test.txt",
+test_activities <- read.table(paste0(working_dir, "/UCI HAR Dataset/test/y_test.txt"),
                               col.names = "activity_id")
 # add descriptors to the test_activities
 test_activities <- 
@@ -66,7 +64,7 @@ test_data <- cbind(data_type = rep("test", length(test_data$subject_id)),
                    test_data_no_ids)
 
 # load the training data
-train_data_no_ids <- read.table("./data/UCI HAR Dataset/train/X_train.txt"
+train_data_no_ids <- read.table(paste0(working_dir, "/UCI HAR Dataset/train/X_train.txt")
                                , col.names = variable_names$variable_name_tidy)
 # there are some duplicate column names that need to be handeled
 # the duplicate names were given .# at the end of the columns
@@ -74,10 +72,10 @@ train_data_no_ids <- read.table("./data/UCI HAR Dataset/train/X_train.txt"
 # we are just going to replace the . with an underscore and keep the number
 colnames(train_data_no_ids) <- gsub("\\.", "_", colnames(train_data_no_ids))
 # load the train subjects
-train_subjects <- read.table("./data/UCI HAR Dataset/train/subject_train.txt",
+train_subjects <- read.table(paste0(working_dir, "/UCI HAR Dataset/train/subject_train.txt"),
                             col.names = "subject_id")
 # load the train activities that relate to the train data
-train_activities <- read.table("./data/UCI HAR Dataset/train/y_train.txt",
+train_activities <- read.table(paste0(working_dir, "/UCI HAR Dataset/train/y_train.txt"),
                               col.names = "activity_id")
 # add descriptors to the train_activities
 train_activities <- 
