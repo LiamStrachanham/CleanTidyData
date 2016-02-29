@@ -11,6 +11,39 @@ which have been processed using various signal processing techniques to measurem
 of 561 features. For detailed description of the original dataset, please see `features_info.txt` in
 the zipped dataset file.
 
+Description of abbreviations of measurements
+
+leading time or freq is based on time or frequency measurements.
+Body = related to body movement.
+Gravity = acceleration of gravity
+Acc = accelerometer measurement
+Gyro = gyroscopic measurements
+Jerk = sudden movement acceleration
+Mag = magnitude of movement
+mean and SD are calculated for each subject for each activity for each mean and SD measurements.
+The units given are g’s for the accelerometer and rad/sec for the gyro and g/sec and rad/sec/sec for the corresponding jerks.
+
+These signals were used to estimate variables of the feature vector for each pattern:
+‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions. They total 33 measurements including the 3 dimensions - the X,Y, and Z axes.
+
+time_BodyAcc_XYZ
+time_GravityAcc_XYZ
+time_BodyAccJerk_XYZ
+time_BodyGyro_XYZ
+time_BodyGyroJerk_XYZ
+time_BodyAccMag
+time_GravityAccMag
+time_BodyAccJerkMag
+time_BodyGyroMag
+time_BodyGyroJerkMag
+freq_BodyAcc_XYZ
+freq_BodyAccJerk_XYZ
+freq_BodyGyro_XYZ
+freq_BodyAccMag
+freq_BodyAccJerkMag
+freq_BodyGyroMag
+freq_BodyGyroJerkMag
+
 ## Download the data
 
 We want to download the into a folder that we know is there, so we first check to see if there is a folder in the users working directory. We then download the file into the directory we created. Lastly we unzip the file into the folder we created to be able to read the data in.
