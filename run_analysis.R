@@ -117,3 +117,5 @@ agg_samsung_data_means_and_stds <-
      group_by(subject_id,
               activity_name) %>% 
      summarise_each(funs(mean))
+
+write.table(agg_samsung_data_means_and_stds, file = "agg_samsung_data_means_and_stds.txt", row.names = FALSE)
