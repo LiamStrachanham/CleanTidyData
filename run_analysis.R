@@ -1,14 +1,7 @@
 library(dplyr)
 
-## File download and setup ----
-# Making sure there is a direction to put our file in
-if (!file.exists("./data")){dir.create("./data")}
-# Set the URL we want to pull data from
-samsung_data_url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-# Download the file (using the curl method for a Mac)
-download.file(samsung_data_url, destfile = "./data/samsung_data.zip", method = "curl")
-# unzip the file to the data directory so we can start working with the files.
-unzip("./data/samsung_data.zip", exdir = "./data")
+# We assume the data is already downloaded into the working directory.
+working_dir <- getwd()
 
 ## Tidy the data ----
 
