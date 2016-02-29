@@ -44,15 +44,12 @@ freq_BodyAccJerkMag
 freq_BodyGyroMag
 freq_BodyGyroJerkMag
 
-## Download the data
+## Set the working directory
 
-We want to download the into a folder that we know is there, so we first check to see if there is a folder in the users working directory. We then download the file into the directory we created. Lastly we unzip the file into the folder we created to be able to read the data in.
+We assume the data is already downloaded into the working directory.
      
 ```
-if (!file.exists("./data")){dir.create("./data")}
-samsung_data_url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(samsung_data_url, destfile = "./data/samsung_data.zip", method = "curl")
-unzip("./data/samsung_data.zip", exdir = "./data")
+working_dir <- getwd()
 ```
 
 ## Load the descriptions of the Variables and Clean them
