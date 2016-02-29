@@ -11,10 +11,10 @@ which have been processed using various signal processing techniques to measurem
 of 561 features. For detailed description of the original dataset, please see `features_info.txt` in
 the zipped dataset file.
 
-Description of abbreviations of measurements
+Description of abbreviations of measurements\n
 
-leading time or freq is based on time or frequency measurements.
-Body = related to body movement.
+leading time or freq is based on time or frequency measurements.\n
+Body = related to body movement.\n
 Gravity = acceleration of gravity
 Acc = accelerometer measurement
 Gyro = gyroscopic measurements
